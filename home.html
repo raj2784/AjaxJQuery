@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //fetch data from  normal JavaScript
+      function LoadData() {
+        var request = new XMLHttpRequest();
+        //first parameter is call type GET or POST and second parameter is URL
+        request.open("GET", "data.json");
+        request.onreadystatechange = function () {
+          //call wheneverstate chage
+          if (this.readyState === 4 && this.status == 200) {
+            console.log(this.responseText); // this.responseText;
+            document.getElementById("JSData").innerHTML = this.responseText;
+            //document.getElementById("dt").innerHTML = this.responseText;
+            let ob = JSON.parse(this.responseText);
+          }
+        };
+        request.send();
+        //alert("loading");
+      }
+    </script>
+  </head>
+  <body style="background-color: black; color: white">
+    <h1>Ajax Request</h1>
+    <h3><a href="about.html">About</a></h3>
+    <div>
+      <button onclick="LoadData()">JavaScript Load Button</button>
+    </div>
+    <button id="dt">jQery Load Button</button>
+    <div id="JSData"></div>
+    <div id="JQeryData"></div>
+  </body>
+
+  <script
+    src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+    crossorigin="anonymous"
+  ></script>
+
+  <script>
+    //fetch data using JQuery Ajax
+    $(document).ready(function () {
+      $("#dt").click(function () {
+        $.get("data.json", function (data) {
+          console.log("dt", data);
+        });
+      });
+    });
+  </script>
+</html>
