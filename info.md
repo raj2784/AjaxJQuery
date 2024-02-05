@@ -14,7 +14,7 @@
 
     HTTP response status codes
 
-    HTTP response status codes indicate whether a specific HTTP request has been successfully completed. Responses    	   are grouped in five classes:
+    HTTP response status codes indicate whether a specific HTTP request has been successfully completed. Responses    	   are grouped in five  classes:
 
     Informational responses (100 – 199)
 
